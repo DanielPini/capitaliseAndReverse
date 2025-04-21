@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Text Capitaliser and Reverser</h1>
-    <form method="POST" action="">
+    <form method="POST" action="processText()">
       <label for="text">Input text here</label>
       <input type="text" name="text" id="text">
       <input type="submit">
@@ -15,5 +15,16 @@
       <h2>Result</h2>
       <p class="processed-text"></p>
     </div>
+    <script>
+      const userTextBox = document.getElementById("text");
+      const regex = /\b\w/g;
+      const resultText = document.querySelector(".processed-text"); 
+      function processText() {
+        let text = userTextBox.value;
+        text.replace(regex, function(letter) { return letter.toUpperCase() })
+        }
+        resultText.textContent = text;
+      }
+    </script>
   </body>
 </html>
